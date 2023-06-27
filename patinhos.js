@@ -2,6 +2,16 @@ const prompt = require("prompt-sync")({ sigint: true });
 
 let quantidade = prompt("Digite a quantidade de patinhos: ");
 
+while (
+  !Number.isInteger(parseFloat(quantidade)) ||
+  quantidade <= 0 ||
+  isNaN(quantidade)
+) {
+  quantidade = prompt(
+    "Digite um valor inteiro positivo para a quantidade de patinhos: "
+  );
+}
+
 for (i = 0; i < quantidade; i++) {
   console.log(`${quantidade - i} patinhos foram passear`);
   console.log("além das montanhas para brincar");
