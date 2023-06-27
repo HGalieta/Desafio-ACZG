@@ -13,7 +13,11 @@ while (
 }
 
 for (i = 0; i < quantidade; i++) {
-  console.log(`${quantidade - i} patinhos foram passear`);
+  if (quantidade - 1 == 1) {
+    console.log(`${quantidade - i} patinho foi passear`);
+  } else {
+    console.log(`${quantidade - i} patinhos foram passear`);
+  }
   console.log("além das montanhas para brincar");
   console.log("A mamãe gritou, quá, quá, quá, quá");
   if (quantidade - (i + 1) == 0) {
