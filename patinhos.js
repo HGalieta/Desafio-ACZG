@@ -1,31 +1,31 @@
 const prompt = require("prompt-sync")({ sigint: true });
 
-let quantidade = prompt("Digite a quantidade de patinhos: ");
+let quantidade = parseFloat(prompt("Digite a quantidade de patinhos: "));
 
-while (
-  !Number.isInteger(parseFloat(quantidade)) ||
-  quantidade <= 0 ||
-  isNaN(quantidade)
-) {
-  quantidade = prompt(
-    "Digite um valor inteiro positivo para a quantidade de patinhos: "
+while (isNaN(quantidade) || !Number.isInteger(quantidade) || quantidade <= 0) {
+  quantidade = parseFloat(
+    prompt(
+      "Digite um valor numérico inteiro positivo para a quantidade de patinhos: "
+    )
   );
 }
 
 for (i = 0; i < quantidade; i++) {
-  if (quantidade - 1 == 1) {
-    console.log(`${quantidade - i} patinho foi passear`);
-  } else {
+  if (quantidade - i > 1) {
     console.log(`${quantidade - i} patinhos foram passear`);
-  }
-  console.log("além das montanhas para brincar");
-  console.log("A mamãe gritou, quá, quá, quá, quá");
-  if (quantidade - (i + 1) == 0) {
-    console.log("Mas nenhum patinho voltou de lá.");
-  } else if (quantidade - (i + 1) == 1) {
-    console.log(`mas só ${quantidade - (i + 1)} patinho voltou de lá`);
   } else {
-    console.log(`mas só ${quantidade - (i + 1)} patinhos voltaram de lá`);
+    console.log(`${quantidade - i} patinho foi passear`);
+  }
+
+  console.log("Além das montanhas para brincar");
+  console.log("A mamãe gritou, quá, quá, quá, quá");
+
+  if (quantidade - (i + 1) > 1) {
+    console.log(`Mas só ${quantidade - (i + 1)} patinhos voltaram de lá`);
+  } else if (quantidade - (i + 1) === 1) {
+    console.log(`Mas só ${quantidade - (i + 1)} patinho voltou de lá`);
+  } else {
+    console.log("Mas nenhum patinho voltou de lá.");
   }
   console.log("");
 }
